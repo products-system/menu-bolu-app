@@ -1,95 +1,83 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import './globals.css';
+import { walkthroughData } from './model';
+import { useState } from 'react';
+import { createCookie } from '@/functions/handleCookie';
+import { useRouter } from 'next/navigation';
+import Button from '@/UI/Button';
+import Link from 'next/link';
+import Header from '@/components/Header';
 
-export default function Home() {
+const Home = () => {
+  const router = useRouter();
+  const [slideIndex, setSlideIndex] = useState(1);
+  const moveDot = (index: any) => {
+    setSlideIndex(index);
+  };
+  const nextSlide = () => {
+    if (slideIndex !== walkthroughData.length) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === walkthroughData.length) {
+      router.push('/dashboard');
+    }
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div>
+      <Header />
+      <div className="px-6">
+        <div className="container-slider px-6 flex flex-col">
+          {walkthroughData?.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={`${slideIndex === index + 1 ? '!opacity-100' : 'opacity-0'} slide flex w-full h-full absolute`}
+              >
+                <li className="list-none pt-1 my-2 mx-auto">
+                  <h1 className="text-2xl text-slate-900">{item.title}</h1>
+                  <p className="text-base text-slate-700 font-light">
+                    {item.description}
+                  </p>
+                </li>
+              </div>
+            );
+          })}
+          <div className="flex flex-row mx-auto">
+            {walkthroughData?.map((_, index) => {
+              return (
+                <div
+                  key={index}
+                  onClick={() => moveDot(index + 1)}
+                  className={`${slideIndex === index + 1 ? 'bg-orange-500' : 'bg-orange-300'} rounded-full  h-3 w-3 mr-3`}
+                ></div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <Button
+            title={`${slideIndex === walkthroughData.length ? 'Ir para home' : 'Próximo'}`}
+            className=" font-bold mt-5 bg-green-700 text-white  py-6"
+            onClick={() => nextSlide()}
+          />
+          <Link
+            onClick={(e) => {
+              e.preventDefault();
+              createCookie({
+                name: 'menu-bolu-skipped-walkthrough',
+                value: 'true',
+              });
+              router.push('/dashboard');
+            }}
+            href="/dashboard"
+            className="text-center bottom-10 bg-transparent text-slate-600  py-6"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Pular
+          </Link>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default Home;
