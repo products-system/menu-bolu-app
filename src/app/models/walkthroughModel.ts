@@ -1,4 +1,4 @@
-import { WalkthroughModel } from './types';
+import { WalkthroughModel } from '../types';
 
 export const walkthroughData: WalkthroughModel[] = [
   {

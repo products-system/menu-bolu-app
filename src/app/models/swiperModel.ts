@@ -5,6 +5,11 @@ interface SwiperSlideItem {
   title: string;
   category: string;
 }
+export const scrollOptions = {
+  offset: -170,
+  smooth: true,
+  duration: 500,
+};
 
 export const SwiperSlideData: SwiperSlideItem[] = [
   {

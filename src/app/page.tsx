@@ -1,12 +1,11 @@
 'use client';
 import './globals.css';
-import { walkthroughData } from './model';
+import { walkthroughData } from './models/walkthroughModel';
 import { useState } from 'react';
 import { createCookie } from '@/functions/handleCookie';
 import { useRouter } from 'next/navigation';
 import Button from '@/UI/Button';
 import Link from 'next/link';
-import Header from '@/components/Header';
 
 const Home = () => {
   const router = useRouter();
@@ -24,7 +23,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <div className="px-6">
         <div className="container-slider px-6 flex flex-col">
           {walkthroughData?.map((item, index) => {

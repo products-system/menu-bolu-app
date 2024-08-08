@@ -2,21 +2,19 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperSlideData } from './model';
+import { SwiperSlideData, scrollOptions } from '../../models/swiperModel';
 import { IoIosArrowForward } from 'react-icons/io';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 import './styles.css';
 
-const SwiperContainer: React.FC<{
-  myRef: any;
-}> = ({ myRef }) => {
+const SwiperContainer = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <header ref={headerRef} className="!sticky top-0 pt-1 bg-white">
+    <div ref={headerRef} className="!sticky top-0 pt-1 bg-white">
       <div className="categories-wrapper mt-8">
-        <div className="categories-header flex justify-between mb-5">
+        <div className="categories-header flex justify-between mb-5 px-6">
           <p className="text-xl">Categorias</p>
           <span className="flex items-center">
             <p className="mr-2">veja todas</p>
@@ -30,28 +28,29 @@ const SwiperContainer: React.FC<{
         className="categories-slider-container "
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
-          myRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest',
-          });
+          const correctSwiperData = SwiperSlideData.find(
+            (x) => x.id === swiper.activeIndex,
+          );
+          if (correctSwiperData)
+            scroller.scrollTo(correctSwiperData?.category, scrollOptions);
         }}
       >
-        {SwiperSlideData.map((slide, idx) => {
+        {SwiperSlideData.map((slide) => {
           return (
             <SwiperSlide
-              onClick={() => setActiveIndex(idx)}
+              onClick={() => {}}
               key={slide?.id}
-              className={`!w-max `}
+              className={`!w-max`}
             >
               <ScrollLink
                 to={slide?.category}
-                smooth={true}
-                offset={-170}
-                duration={500}
+                smooth={scrollOptions.smooth}
+                offset={scrollOptions.offset}
+                duration={scrollOptions.duration}
+                onClick={() => setActiveIndex(slide?.id)}
               >
                 <div
-                  className={`categories-slider my-2 flex items-center p-2 shadow-sm shadow-slate-500/50 rounded-3xl ${activeIndex == idx ? 'bg-lime-400' : ''}`}
+                  className={`categories-slider my-2 flex items-center p-2 shadow-sm shadow-slate-500/50 rounded-3xl ${activeIndex === slide.id ? 'bg-lime-400' : ''}`}
                 >
                   <Image
                     src={slide?.imagePath}
@@ -67,7 +66,7 @@ const SwiperContainer: React.FC<{
           );
         })}
       </Swiper>
-    </header>
+    </div>
   );
 };
 
