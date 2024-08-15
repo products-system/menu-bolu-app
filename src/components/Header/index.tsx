@@ -1,25 +1,13 @@
 'use client';
 import Image from 'next/image';
-import { useMemo } from 'react';
-import { selectCount } from '../../app/lib/features/cartSlice';
 import { useAppSelector } from '@/hooks/hooks';
+import { selectCount } from '../../app/lib/features/cartSlice';
 
 const Header = () => {
   const count = useAppSelector(selectCount);
 
-  const greeting = useMemo(() => {
-    const now = new Date();
-    const hours = now.getHours();
-    if (hours >= 5 && hours < 12) {
-      return 'Bom dia!';
-    } else if (hours >= 12 && hours < 18) {
-      return 'Boa tarde!';
-    } else {
-      return 'Boa noite!';
-    }
-  }, []);
   return (
-    <div className="px-6 pt-11">
+    <div className="px-6 pt-11 ">
       <div className="flex flex-row justify-between">
         <div className="flex">
           <Image
@@ -48,11 +36,6 @@ const Header = () => {
             </span>
           </div>
         </div>
-      </div>
-      <div className="mt-6">
-        <h3>
-          <span className="font-bold">{greeting}</span> vai um Bolu?
-        </h3>
       </div>
     </div>
   );

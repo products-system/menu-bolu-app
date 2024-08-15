@@ -2,9 +2,10 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperSlideData, scrollOptions } from '../../models/swiperModel';
+import { SwiperSlideData, scrollOptions } from '../../app/models/swiperModel';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link as ScrollLink, scroller } from 'react-scroll';
+import Link from 'next/link';
 import './styles.css';
 
 const SwiperContainer = () => {
@@ -17,7 +18,9 @@ const SwiperContainer = () => {
         <div className="categories-header flex justify-between mb-5 px-6">
           <p className="text-xl">Categorias</p>
           <span className="flex items-center">
-            <p className="mr-2">veja todas</p>
+            <Link className="mr-2" href={`/todos-os-produtos/produtos`}>
+              ver todas
+            </Link>
             <IoIosArrowForward />
           </span>
         </div>

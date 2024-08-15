@@ -8,6 +8,7 @@ interface ProductSegment {
   id: number;
   category: string;
   title: string;
+  imagePath: string;
   items: ProductItem[];
 }
 
@@ -15,7 +16,8 @@ export const ProductsSegments: ProductSegment[] = [
   {
     id: 0,
     title: 'Bolos',
-    category: 'cake',
+    category: 'bolos',
+    imagePath: '/cake-vector.png',
     items: [
       {
         id: 0,
@@ -34,7 +36,8 @@ export const ProductsSegments: ProductSegment[] = [
   {
     id: 1,
     title: 'Cookies',
-    category: 'cookie',
+    category: 'cookies',
+    imagePath: '/cake-vector.png',
     items: [
       {
         id: 0,
@@ -53,7 +56,8 @@ export const ProductsSegments: ProductSegment[] = [
   {
     id: 2,
     title: 'Tortas',
-    category: 'pie',
+    category: 'tortas',
+    imagePath: '/cake-vector.png',
     items: [
       {
         id: 0,
@@ -72,7 +76,8 @@ export const ProductsSegments: ProductSegment[] = [
   {
     id: 3,
     title: 'Brigadeiros',
-    category: 'brazillian-chocolate-truffle',
+    category: 'brigadeiros',
+    imagePath: '/cake-vector.png',
     items: [
       {
         id: 0,

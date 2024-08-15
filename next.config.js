@@ -10,7 +10,7 @@ module.exports = {
           },
         ],
         source: '/',
-        destination: '/dashboard',
+        destination: '/todos-os-produtos',
         permanent: false,
       },
     ];

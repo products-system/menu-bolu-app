@@ -19,9 +19,10 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "components": ["./src/components"],
-      "UI": ["./src/UI"],
-      "functions": ["./src/functions"]
+      "@components/*": ["../src/components/*"],
+      "@UI/*": ["./src/UI/*"],
+      "@functions/*": ["./src/functions/*"],
+      "@models/*": ["./src/app/models/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

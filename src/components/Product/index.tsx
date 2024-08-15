@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { ProductItem } from '../../models/productModel';
+import { ProductItem } from '../../app/models/productModel';
 
 const Product: React.FC<{
   item: ProductItem;

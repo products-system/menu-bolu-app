@@ -14,28 +14,28 @@ export const scrollOptions = {
 export const SwiperSlideData: SwiperSlideItem[] = [
   {
     id: 0,
-    category: 'cake',
+    category: 'bolos',
     title: 'Bolo',
     imagePath: '/cake-vector.png',
     imageAlt: 'Imagem de bolo',
   },
   {
     id: 1,
-    category: 'cookie',
+    category: 'cookies',
     title: 'Cookies',
     imagePath: '/cake-vector.png',
     imageAlt: 'Imagem de Cookie',
   },
   {
     id: 2,
-    category: 'pie',
+    category: 'tortas',
     title: 'Tortas',
     imagePath: '/cake-vector.png',
     imageAlt: 'Imagem de tortas',
   },
   {
     id: 3,
-    category: 'brazillian-chocolate-truffle',
+    category: 'brigadeiros',
     title: 'Brigadeiros',
     imagePath: '/cake-vector.png',
     imageAlt: 'Imagem de brigadeiro',

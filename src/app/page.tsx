@@ -17,7 +17,7 @@ const Home = () => {
     if (slideIndex !== walkthroughData.length) {
       setSlideIndex(slideIndex + 1);
     } else if (slideIndex === walkthroughData.length) {
-      router.push('/dashboard');
+      router.push('/todos-os-produtos');
     }
   };
 
@@ -65,7 +65,7 @@ const Home = () => {
                 name: 'menu-bolu-skipped-walkthrough',
                 value: 'true',
               });
-              router.push('/dashboard');
+              router.push('/todos-os-produtos');
             }}
             href="/dashboard"
             className="text-center bottom-10 bg-transparent text-slate-600  py-6"
