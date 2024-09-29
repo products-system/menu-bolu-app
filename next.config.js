@@ -2,15 +2,15 @@ module.exports = {
   async redirects() {
     return [
       {
-        has: [
+        source: '/',
+        missing: [
           {
             type: 'cookie',
             key: 'menu-bolu-skipped-walkthrough',
             value: 'true',
           },
         ],
-        source: '/',
-        destination: '/todos-os-produtos',
+        destination: '/guia',
         permanent: false,
       },
     ];

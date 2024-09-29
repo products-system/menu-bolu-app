@@ -1,9 +1,9 @@
 import React from 'react';
-import { ProductsSegments } from '@models/productModel';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ProductsSegments } from '@models/productModel';
 
-const products: React.FC<{}> = () => {
+const Products: React.FC<{}> = () => {
   return (
     <section className="px-6 mt-5">
       <p className="text-xl mb-5">Produtos</p>
@@ -11,10 +11,7 @@ const products: React.FC<{}> = () => {
         {ProductsSegments.map((product) => {
           return (
             <div className="mb-7">
-              <Link
-                key={product?.id}
-                href={`/todos-os-produtos/produtos/${product?.category}`}
-              >
+              <Link key={product?.id} href={`/produtos/${product?.category}`}>
                 <div className="w-full h-[137px] relative border-radi">
                   <Image
                     fill={true}
@@ -34,7 +31,7 @@ const products: React.FC<{}> = () => {
                         key={itemTitle?.id}
                         className="text-sm text-slate-400 mr-1 text-nowrap"
                       >
-                        {itemTitle?.subtitle}
+                        {itemTitle?.name}
                         {!isLastItem && ' -'}
                       </p>
                     );
@@ -49,4 +46,4 @@ const products: React.FC<{}> = () => {
   );
 };
 
-export default products;
+export default Products;

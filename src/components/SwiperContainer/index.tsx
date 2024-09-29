@@ -18,7 +18,7 @@ const SwiperContainer = () => {
         <div className="categories-header flex justify-between mb-5 px-6">
           <p className="text-xl">Categorias</p>
           <span className="flex items-center">
-            <Link className="mr-2" href={`/todos-os-produtos/produtos`}>
+            <Link className="mr-2" href={`/produtos`}>
               ver todas
             </Link>
             <IoIosArrowForward />

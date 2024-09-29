@@ -25,7 +25,7 @@ const ProductsSegment: React.FC<{
           <ScrollTarget name={segment?.category}>
             <Link
               className="mr-2 flex items-baseline"
-              href={`/todos-os-produtos/produtos/${segment?.category}`}
+              href={`/produtos/${segment?.category}`}
             >
               <h2 className="text-xl mb-5">{segment.title}</h2>
               <CiCirclePlus className="w-[18px] h-[18px] ml-1" />

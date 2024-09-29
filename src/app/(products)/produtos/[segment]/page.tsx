@@ -3,18 +3,20 @@ import React from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { ProductItem, ProductsSegments } from '@/app/models/productModel';
 import Product from '@/components/Product';
+
 import Link from 'next/link';
 
-const Products = ({ params }: { params: { slug: string } }) => {
+const Products = ({ params }: { params: { segment: string } }) => {
   const product = ProductsSegments.find(
-    (item) => item.category == params?.slug,
+    (item) => item.category == params?.segment,
   );
+
   return (
     <section className="px-6">
       <div className="flex items-baseline mt-3">
         <Link
           className="w-[45px] h-[45px] flex items-center mr-1"
-          href={'/todos-os-produtos'}
+          href={'/produtos'}
         >
           <MdOutlineArrowBackIosNew className="h-4 w-8 " />
         </Link>
