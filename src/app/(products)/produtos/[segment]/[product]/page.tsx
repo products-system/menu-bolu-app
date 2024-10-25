@@ -1,26 +1,26 @@
 'use client';
 import Image from 'next/image';
+import Button from '@/UI/Button';
 import React from 'react';
-
 import { useParams } from 'next/navigation';
 import { ProductsSegments } from '@/app/models/productModel';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
 import { BsDashCircleFill } from 'react-icons/bs';
 import { BsPlusCircleFill } from 'react-icons/bs';
-import Button from '@/UI/Button';
+import { formatProductName } from '@/functions/formatProductName';
 
 const Product = () => {
   const params = useParams<{ segment: string; product: string }>();
   const { segment, product } = params;
   const decodedProduct = decodeURIComponent(product?.toString());
   const router = useRouter();
-
-  const detailedProduct = ProductsSegments.find(
+  const item = ProductsSegments.find(
     (segmentItem) => segmentItem.category === segment,
   )?.items.find(
     (item) =>
-      item.name.toLowerCase() === decodedProduct?.toString().toLowerCase(),
+      formatProductName(item.name) ===
+      formatProductName(decodedProduct?.toString().toLowerCase()),
   );
 
   return (
@@ -35,7 +35,7 @@ const Product = () => {
           </div>
           <Image
             fill={true}
-            src={`${detailedProduct?.imagePath}`}
+            src={`${item?.imagePath ? item.imagePath : '/fallback-image.png'}`}
             alt={`imagem da categoria`}
             className="rounded-b-[30px]"
             objectFit="cover"
@@ -43,14 +43,17 @@ const Product = () => {
         </div>
       </header>
       <div className="p-6">
-        <h1 className="text-xl font-bold mb-2">{detailedProduct?.name}</h1>
+        <h1 className="text-xl font-bold mb-2">{item?.name}</h1>
         <p className="text-justify word-tight text-sm text-slate-400 mb-6">
-          {detailedProduct?.extra.description}
+          {item?.extra.description}
         </p>
-        {detailedProduct?.extra.sizes && (
+        {item?.extra.sizes && (
           <span className="flex items-center ">
-            {detailedProduct?.extra?.sizes?.map((size: number, idx: number) => (
-              <div className="mr-2  bg-slate-200   rounded-full text-center py-[20px] px-[10px] ">
+            {item?.extra?.sizes?.map((size: number, idx: number) => (
+              <div
+                key={idx}
+                className="mr-2  bg-slate-200   rounded-full text-center py-[20px] px-[10px] "
+              >
                 <p className=" text-sm" key={idx}>
                   {size} cm
                 </p>
@@ -59,7 +62,7 @@ const Product = () => {
           </span>
         )}
       </div>
-      <footer className="pt-5 pb-[30px] px-6 bg-slate-100 rounded-t-[30px]">
+      <footer className="pt-5 pb-[30px] px-6 bg-slate-100 rounded-t-[30px] fixed w-full bottom-0">
         <div className="flex justify-between mb-6 items-center">
           <span className="text-2xl">R$ 32</span>
           <div className="flex bg-customDark py-3 px-4 rounded-3xl items-center justify-center">

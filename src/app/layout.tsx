@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Sen } from 'next/font/google';
 import StoreProvider from './StoreProvider';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const sen = Sen({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Cardápio Digital da Bolu',
@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <StoreProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={sen.className} suppressHydrationWarning={true}>
+          {children}
+        </body>
       </StoreProvider>
     </html>
   );

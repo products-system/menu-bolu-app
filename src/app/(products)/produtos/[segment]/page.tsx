@@ -2,8 +2,8 @@
 import React from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { ProductItem, ProductsSegments } from '@/app/models/productModel';
+import { formatProductName } from '@/functions/formatProductName';
 import Product from '@/components/Product';
-
 import Link from 'next/link';
 
 const Products = ({ params }: { params: { segment: string } }) => {
@@ -27,7 +27,11 @@ const Products = ({ params }: { params: { segment: string } }) => {
       </div>
 
       {product?.items?.map((item: ProductItem) => {
-        return <Product key={item?.id} item={item} />;
+        return (
+          <Link href={`${params?.segment}/${formatProductName(item?.name)}`}>
+            <Product key={item?.id} item={item} />
+          </Link>
+        );
       })}
     </section>
   );

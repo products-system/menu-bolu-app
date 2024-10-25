@@ -4,9 +4,9 @@ import { ProductsSegments } from '../../app/models/productModel';
 import { useAppSelector } from '@/hooks/hooks';
 import { isHeaderSticky } from '@/app/lib/features/swiperSlice';
 import { Element as ScrollTarget } from 'react-scroll';
-import Product from '../Product';
-import Link from 'next/link';
 import { CiCirclePlus } from 'react-icons/ci';
+import Product from '@/components/Product';
+import Link from 'next/link';
 
 const ProductsSegment: React.FC<{
   myRef?: any;
@@ -32,7 +32,7 @@ const ProductsSegment: React.FC<{
             </Link>
 
             {segment.items.map((item) => (
-              <Product key={item?.id} item={item} />
+              <Product segment={segment?.category} key={item?.id} item={item} />
             ))}
           </ScrollTarget>
         </div>
