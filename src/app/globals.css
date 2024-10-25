@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 370px;
+  margin: 135px auto 0;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.slide {
+  transition: opacity ease-in-out 0.4s;
+}
