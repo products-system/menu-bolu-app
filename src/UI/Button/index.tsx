@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   icon?: string;
   className?: string;

@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+const toRgbaColors =
+  (cssVariable) =>
+  ({ opacityValue }) =>
+    `rgba(var(${cssVariable}), ${opacityValue})`;
 
 module.exports = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
 
@@ -21,6 +23,7 @@ module.exports = {
       colors: {
         customGrey: '#41414F',
         customDark: '#121223',
+        primary: toRgbaColors('--primary'),
       },
     },
   },
