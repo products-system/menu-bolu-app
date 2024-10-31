@@ -32,7 +32,7 @@ const ProductsSegment: React.FC<{
             </Link>
 
             {segment.items.map((item) => (
-              <Product segment={segment?.category} key={item?.id} item={item} />
+              <Product key={item?.id} item={item} />
             ))}
           </ScrollTarget>
         </div>

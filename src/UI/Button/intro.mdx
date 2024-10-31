@@ -1,4 +1,4 @@
-import { Meta, Controls, Primary } from '@storybook/blocks';
+import { Meta, Controls, Primary, Canvas } from '@storybook/blocks';
 import * as Story from './Button.stories.ts';
 
 <Meta of={Story} />
@@ -8,4 +8,5 @@ import * as Story from './Button.stories.ts';
 Esse é um botão e quem não gostou, vem fazer na mão
 
 <Primary />
-<Controls />
+
+<Canvas of={Story.BoluTheme} />

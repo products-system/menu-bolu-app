@@ -4,9 +4,13 @@
 
 @layer base {
   :root {
-    --primary-green: #52714c;
-    --secondary-orange: #ff7622;
+    --primary: 45, 91, 255;
+    --tertiary: rgba(251, 210, 212);
   }
+}
+
+.theme-bolu {
+  --primary: 82, 113, 76;
 }
 
 .container-slider {
