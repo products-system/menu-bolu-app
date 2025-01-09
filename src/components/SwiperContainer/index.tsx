@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperSlideData, scrollOptions } from '../../app/models/swiperModel';
+import { SwiperSlideData, scrollOptions } from '../../models/swiperModel';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import Link from 'next/link';

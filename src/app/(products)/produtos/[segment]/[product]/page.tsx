@@ -3,11 +3,10 @@ import Image from 'next/image';
 import Button from '@/UI/Button';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { ProductsSegments } from '@/app/models/productModel';
+import { ProductsSegments } from '@/models/productModel';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
-import { BsDashCircleFill } from 'react-icons/bs';
-import { BsPlusCircleFill } from 'react-icons/bs';
+import { BsDashCircleFill, BsPlusCircleFill } from 'react-icons/bs';
 import { formatProductName } from '@/functions/formatProductName';
 
 const Product = () => {

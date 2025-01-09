@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ProductsSegments } from '@models/productModel';
+import { ProductsSegments } from '@/models/productModel';
 
 const Products: React.FC<{}> = () => {
   return (
@@ -10,7 +10,7 @@ const Products: React.FC<{}> = () => {
       <div className="products-container">
         {ProductsSegments.map((product) => {
           return (
-            <div className="mb-7">
+            <div key={product?.id} className="mb-7">
               <Link key={product?.id} href={`/produtos/${product?.category}`}>
                 <div className="w-full h-[137px] relative border-radi">
                   <Image

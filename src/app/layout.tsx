@@ -1,8 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Sen } from 'next/font/google';
-import StoreProvider from './StoreProvider';
-import './globals.css';
+import '../globals.css';
 
 const sen = Sen({ subsets: ['latin'] });
 
@@ -16,11 +15,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <StoreProvider>
-        <body className={sen.className} suppressHydrationWarning={true}>
-          {children}
-        </body>
-      </StoreProvider>
+      <body className={sen.className} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }

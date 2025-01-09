@@ -1,8 +1,6 @@
 'use client';
-import React from 'react';
-import { ProductsSegments } from '../../app/models/productModel';
-import { useAppSelector } from '@/hooks/hooks';
-import { isHeaderSticky } from '@/app/lib/features/swiperSlice';
+import React, { useEffect, useState } from 'react';
+import { ProductsSegments } from '../../models/productModel';
 import { Element as ScrollTarget } from 'react-scroll';
 import { CiCirclePlus } from 'react-icons/ci';
 import Product from '@/components/Product';
@@ -11,10 +9,8 @@ import Link from 'next/link';
 const ProductsSegment: React.FC<{
   myRef?: any;
 }> = ({ myRef }) => {
-  const stickyValue = useAppSelector(isHeaderSticky);
-
   return (
-    <div className={`mt-8 px-6 ${stickyValue == 'sticky' ? 'pt-[158px]' : ''}`}>
+    <div className={`mt-8 px-6 `}>
       {ProductsSegments.map((segment) => (
         <div
           ref={myRef}

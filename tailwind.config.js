@@ -26,28 +26,5 @@ module.exports = {
         primary: toRgbaColors('--primary'),
       },
     },
-  },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        '.word-tight': {
-          'word-spacing': '-1px',
-        },
-        '.word-normal': {
-          'word-spacing': '0',
-        },
-        '.word-wide': {
-          'word-spacing': '1px',
-        },
-        '.word-wider': {
-          'word-spacing': '2px',
-        },
-        '.word-widest': {
-          'word-spacing': '3px',
-        },
-      };
-
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    },
-  ],
+  }
 };

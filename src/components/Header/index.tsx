@@ -1,11 +1,7 @@
 'use client';
 import Image from 'next/image';
-import { useAppSelector } from '@/hooks/hooks';
-import { selectCount } from '../../app/lib/features/cartSlice';
 
 const Header = () => {
-  const count = useAppSelector(selectCount);
-
   return (
     <div className="px-6 pt-11 ">
       <div className="flex flex-row justify-between">
@@ -32,7 +28,7 @@ const Header = () => {
               priority
             ></Image>
             <span className="absolute bg-orange-500 top-0 left-6 rounded-full px-2 text-white">
-              {count}
+              {3}
             </span>
           </div>
         </div>

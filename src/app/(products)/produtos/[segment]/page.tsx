@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
-import { ProductItem, ProductsSegments } from '@/app/models/productModel';
+import { ProductItem, ProductsSegments } from '@/models/productModel';
 import { formatProductName } from '@/functions/formatProductName';
 import Product from '@/components/Product';
 import Link from 'next/link';
@@ -28,7 +28,10 @@ const Products = ({ params }: { params: { segment: string } }) => {
 
       {product?.items?.map((item: ProductItem) => {
         return (
-          <Link href={`${params?.segment}/${formatProductName(item?.name)}`}>
+          <Link
+            key={item?.id}
+            href={`${params?.segment}/${formatProductName(item?.name)}`}
+          >
             <Product key={item?.id} item={item} />
           </Link>
         );

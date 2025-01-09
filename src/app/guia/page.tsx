@@ -1,7 +1,7 @@
 'use client';
-import '../globals.css';
-import { walkthroughData } from '../models/walkthroughModel';
+import '../../globals.css';
 import { useState } from 'react';
+import { walkthroughData } from '../../models/walkthroughModel';
 import { createCookie } from '@/functions/handleCookie';
 import { useRouter } from 'next/navigation';
 import Button from '@/UI/Button';
