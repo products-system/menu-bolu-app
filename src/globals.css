@@ -4,13 +4,28 @@
 
 @layer base {
   :root {
+    /* Cores primárias */
     --primary: 45, 91, 255;
-    --tertiary: rgba(251, 210, 212);
-  }
-}
 
-.theme-bolu {
-  --primary: 82, 113, 76;
+    /* Cores secundárias (laranja) */
+    --orange-dark: 255, 118, 34;
+    --orange-light: 252, 110, 42;
+    --orange-lightest: 255, 235, 228;
+
+    /* Tons de cinza */
+    --grey-darkest: 152, 168, 184;
+    --grey-dark: 236, 240, 244;
+    --grey-light: 246, 246, 246;
+    --grey-lightest: 243, 243, 243;
+    --grey-bottom-container: 240, 245, 250;
+
+    /* Cores de sucesso */
+    --success-color: 5, 156, 106;
+  }
+
+  .theme-bolu {
+    --primary: 82, 113, 76;
+  }
 }
 
 .container-slider {

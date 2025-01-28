@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 const toRgbaColors =
   (cssVariable) =>
   ({ opacityValue }) =>
@@ -10,21 +9,28 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-
   theme: {
     extend: {
-      wordSpacing: {
-        tight: '-1px',
-        normal: '0',
-        wide: '1px',
-        wider: '2px',
-        widest: '3px',
-      },
       colors: {
-        customGrey: '#41414F',
-        customDark: '#121223',
+        // Cores primárias e secundárias
         primary: toRgbaColors('--primary'),
+        orange: {
+          dark: toRgbaColors('--orange-dark'),
+          light: toRgbaColors('--orange-light'),
+          lightest: toRgbaColors('--orange-lightest'),
+        },
+        grey: {
+          darkest: toRgbaColors('--grey-darkest'),
+          dark: toRgbaColors('--grey-dark'),
+          light: toRgbaColors('--grey-light'),
+          lightest: toRgbaColors('--grey-lightest'),
+        },
+        success: toRgbaColors('--success-color'),
+      },
+      backgroundColor: {
+        // Cores de fundo específicas
+        bottomContainer: toRgbaColors('--grey-bottom-container'),
       },
     },
-  }
+  },
 };

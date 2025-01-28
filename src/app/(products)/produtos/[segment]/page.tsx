@@ -20,7 +20,7 @@ const Products = ({ params }: { params: { segment: string } }) => {
         >
           <MdOutlineArrowBackIosNew className="h-4 w-8 " />
         </Link>
-
+        ≤
         <p className="text-xl mb-4">
           {`${product?.title} populares (${product?.items?.length})`}
         </p>
