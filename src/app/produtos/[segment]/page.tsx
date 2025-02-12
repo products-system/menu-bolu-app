@@ -3,7 +3,7 @@ import React from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { ProductItem, ProductsSegments } from '@/models/productModel';
 import { formatProductName } from '@/functions/formatProductName';
-import Product from '@/components/Product';
+import Product from '@/components/Product/Product';
 import Link from 'next/link';
 
 const Products = ({ params }: { params: { segment: string } }) => {
@@ -20,7 +20,6 @@ const Products = ({ params }: { params: { segment: string } }) => {
         >
           <MdOutlineArrowBackIosNew className="h-4 w-8 " />
         </Link>
-        ≤
         <p className="text-xl mb-4">
           {`${product?.title} populares (${product?.items?.length})`}
         </p>

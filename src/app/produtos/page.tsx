@@ -2,17 +2,24 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ProductsSegments } from '@/models/productModel';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 const Products: React.FC<{}> = () => {
   return (
     <section className="px-6 mt-5">
-      <p className="text-xl mb-5">Produtos</p>
+      <Link href={`/`}>
+        <span className="flex items-baseline ">
+          <MdOutlineArrowBackIosNew className="h-2 w-4 " />
+          <p className="mb-5">Voltar</p>
+        </span>
+      </Link>
+      <h1 className="text-2xl mb-7">Produtos</h1>
       <div className="products-container">
         {ProductsSegments.map((product) => {
           return (
             <div key={product?.id} className="mb-7">
               <Link key={product?.id} href={`/produtos/${product?.category}`}>
-                <div className="w-full h-[137px] relative border-radi">
+                <div className="w-full h-[137px] relative border-radius">
                   <Image
                     fill={true}
                     src={product?.imagePath}
