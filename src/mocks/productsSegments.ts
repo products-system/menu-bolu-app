@@ -1,21 +1,4 @@
-export interface ProductItem {
-  id: number;
-  name: string;
-  description: string;
-  imagePath: string;
-  extra: {
-    description: string;
-    sizes?: number[];
-  };
-}
-
-interface ProductSegment {
-  id: number;
-  category: string;
-  title: string;
-  imagePath: string;
-  items: ProductItem[];
-}
+import { ProductSegment } from '@/types/productModel';
 
 export const ProductsSegments: ProductSegment[] = [
   {
@@ -26,8 +9,9 @@ export const ProductsSegments: ProductSegment[] = [
     items: [
       {
         id: 0,
-        name: 'Naked Cake',
-        description: 'O peladinho que a gente gosta!',
+        name: 'Bolo Naked Cake',
+        description: 'Um bolo clássico e elegante, com camadas à mostra.',
+        price: 122.0,
         imagePath: '/cake-vector.png',
         extra: {
           description:
@@ -44,9 +28,11 @@ export const ProductsSegments: ProductSegment[] = [
     items: [
       {
         id: 0,
-        name: 'Red Velvet',
-        description: 'O queridinho da Bo.Lu',
+        name: 'Cookie Red Velvet',
+        description:
+          'Um cookie aveludado e irresistível, com recheio de cream cheese.',
         imagePath: '/cake-vector.png',
+        price: 15.0,
         extra: {
           description:
             'Cookies com sabor intenso de Red Velvet e cobertura de cream cheese.',
@@ -54,9 +40,11 @@ export const ProductsSegments: ProductSegment[] = [
       },
       {
         id: 1,
-        name: 'Pistache',
-        description: 'Pode ser verde mas é muito maduro',
+        name: 'Cookie de Pistache',
+        description:
+          'Sabor único e sofisticado, com pedaços crocantes de pistache.',
         imagePath: '/cake-vector.png',
+        price: 15.0,
         extra: {
           description:
             'Delicioso cookie de pistache com um sabor único e refinado.',
@@ -72,8 +60,10 @@ export const ProductsSegments: ProductSegment[] = [
     items: [
       {
         id: 0,
-        name: 'Limão',
-        description: 'Bem melhor com limão miliciano',
+        name: 'Torta de Limão',
+        price: 60.0,
+        description:
+          'O equilíbrio perfeito entre o azedinho do limão e a doçura da massa.',
         imagePath: '/cake-vector.png',
         extra: {
           description:
@@ -82,9 +72,10 @@ export const ProductsSegments: ProductSegment[] = [
       },
       {
         id: 1,
-        name: 'Maçã',
-        description: 'Totalmente decolonial',
+        name: 'Torta de Maçã',
+        description: 'Um clássico reconfortante com um toque de canela.',
         imagePath: '/apple-pie.webp',
+        price: 75.69,
         extra: {
           description:
             'Torta de maçã com massa crocante e recheio suave de maçãs frescas, levemente aromatizada com canela. Perfeita para acompanhar um café.',
@@ -101,8 +92,9 @@ export const ProductsSegments: ProductSegment[] = [
     items: [
       {
         id: 0,
-        name: 'Tradicional',
-        description: 'O negão irresistível',
+        name: 'Brigadeiro Tradicional',
+        price: 7.5,
+        description: 'O sabor clássico do chocolate que todo mundo ama.',
         imagePath: '/cake-vector.png',
         extra: {
           description:
@@ -111,8 +103,10 @@ export const ProductsSegments: ProductSegment[] = [
       },
       {
         id: 1,
-        name: 'Ninho com Nutella',
-        description: 'É branco mas é bom',
+        name: 'Brigadeiro de Ninho com Nutella',
+        price: 7.5,
+        description:
+          'A combinação perfeita de Leite Ninho cremoso com Nutella.',
         imagePath: '/cake-vector.png',
         extra: {
           description:
@@ -121,8 +115,9 @@ export const ProductsSegments: ProductSegment[] = [
       },
       {
         id: 2,
-        name: 'Ferrero Rocher',
-        description: 'Maior e melhor, senhoras e senhores',
+        name: 'Brigadeiro de Ferrero Rocher',
+        price: 8.49,
+        description: 'Uma explosão de sabor com chocolate e avelãs crocantes.',
         imagePath: '/cake-vector.png',
         extra: {
           description:

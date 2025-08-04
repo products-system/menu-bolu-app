@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { ProductsSegments } from '../../models/productModel';
+import { ProductsSegments } from '@/mocks/productsSegments';
 import { Element as ScrollTarget } from 'react-scroll';
 import { CiCirclePlus } from 'react-icons/ci';
 import { formatProductName } from '@/functions/formatProductName';
@@ -22,6 +22,7 @@ const ProductsSegment = () => {
             </Link>
             {segment.items.map((item) => (
               <Link
+                key={item?.id}
                 href={`produtos/${segment?.category}/${formatProductName(item?.name)}`}
               >
                 <Product key={item?.id} item={item} />

@@ -1,6 +1,6 @@
-export type WalkthroughModel = {
+export interface WalkthroughModel {
   id: number;
   title: string;
   description: string;
   imagePath?: string;
-};
+}

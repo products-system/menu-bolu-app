@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
-import { ProductItem, ProductsSegments } from '@/models/productModel';
+import { ProductItem } from '@/types/productModel';
+import { ProductsSegments } from '@/mocks/productsSegments';
 import { formatProductName } from '@/functions/formatProductName';
 import Product from '@/components/Product/Product';
 import Link from 'next/link';

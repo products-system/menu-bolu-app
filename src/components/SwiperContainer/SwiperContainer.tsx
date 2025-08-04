@@ -1,7 +1,8 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperSlideData, scrollOptions } from '../../models/swiperModel';
+import { scrollOptions } from '@/types/swiper';
+import { SwiperSlideData } from '@/mocks/swiperSlide';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import Link from 'next/link';

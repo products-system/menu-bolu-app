@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ProductsSegments } from '@/models/productModel';
+import { ProductsSegments } from '@/mocks/productsSegments';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 const Products: React.FC<{}> = () => {

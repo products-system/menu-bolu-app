@@ -14,7 +14,6 @@ export async function createCookie(data: cookieData) {
   });
 }
 
-//Setting maxAge to 0 will immediately expire a cookie.
 export async function deleteCookie(data: cookieData) {
   cookies().set(data.name, data.value, { maxAge: 0 });
 }

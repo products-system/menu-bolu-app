@@ -1,5 +1,5 @@
 'use client';
-import { ProductItem } from '@/models/productModel';
+import { ProductItem } from '@/types/productModel';
 import Image from 'next/image';
 import React from 'react';
 

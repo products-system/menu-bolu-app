@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '@/UI/Button';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { ProductsSegments } from '@/models/productModel';
+import { ProductsSegments } from '@/mocks/productsSegments';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { useRouter } from 'next/navigation';
 import { BsDashCircleFill, BsPlusCircleFill } from 'react-icons/bs';
@@ -15,10 +15,10 @@ const Product = () => {
   const decodedProduct = decodeURIComponent(product?.toString());
   const router = useRouter();
   const item = ProductsSegments.find(
-    (segmentItem) => segmentItem.category === segment,
+    (segmentItem) => segmentItem?.category === segment,
   )?.items.find(
     (item) =>
-      formatProductName(item.name) ===
+      formatProductName(item?.name) ===
       formatProductName(decodedProduct?.toString().toLowerCase()),
   );
 
